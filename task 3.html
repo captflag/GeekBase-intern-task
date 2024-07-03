@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .signup-form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        .signup-form h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .signup-form label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        .signup-form input[type="email"],
+        .signup-form input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .signup-form input[type="checkbox"] {
+            margin-right: 5px;
+        }
+        .signup-form input[type="submit"] {
+            background: #28a745;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .signup-form input[type="submit"]:hover {
+            background: #218838;
+        }
+        .error-message {
+            color: red;
+            display: none;
+        }
+    </style>
+    <script>
+        function validatePassword() {
+            var password = document.getElementById("password").value;
+            var errorMessage = document.getElementById("error-message");
+            if (password.length < 8 || password.length > 20) {
+                errorMessage.style.display = "block";
+                return false;
+            }
+            errorMessage.style.display = "none";
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <div class="signup-form">
+        <h2>Sign Up</h2>
+        <form onsubmit="return validatePassword()">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" value="divyanshd666@gmail.com" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+            <span id="error-message" class="error-message">Password must be between 6 and 20 characters</span>
+
+            <label for="confirm-password">Repeat Password</label>
+            <input type="password" id="confirm-password" name="confirm-password" required>
+
+            <input type="checkbox" id="remember" name="remember" checked>
+            <label for="remember"> Remember me</label><br><br>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>
